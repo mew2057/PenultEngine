@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Kore Wa Dash Desu Ka?!</title>
+	
+		<!-- Engine Scripts -->
+		<script type="text/javascript" src="penultEngine.js"></script>
+		<script type="text/javascript" src="PenultActor.js"></script>
+		<script type="text/javascript" src="penultGlobals.js"></script>
+
+		<!-- Game Scripts -->
+		<script type="text/javascript" src="KoreWaCrashDesuKa/korewaGlobals.js"></script>
+		<script type="text/javascript" src="KoreWaCrashDesuKa/korewaGame.js"></script>
+
+
+</head>
+
+<body onload='initKoreWaCrashGame(["fg_PenultGame", "bg_PenultGame"]); console.log(PENULT_GAME_ENGINE, KORE_WA_GAME)'>
+	<div id="gameBox" style="position:relative">
+		<canvas id="fg_PenultGame" tabindex="0" style='outline: 2px dotted blue; image-rendering: -webkit-optimize-contrast; z-index:1; position:absolute; top:0; left:0;' width="1024" height="500" >
+			HTML5 not supported in your browser
+		</canvas>
+		<canvas id="bg_PenultGame" tabindex="1" style='outline: 2px dotted blue; image-rendering: -webkit-optimize-contrast; z-index:0; position:absolute; top:0; left:0;' width="1024" height="500" >
+			HTML5 not supported in your browser
+		</canvas>
+	</div>
+</body>
+
+</html>
