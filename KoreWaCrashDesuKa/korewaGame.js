@@ -6,8 +6,9 @@ function initKoreWaCrashGame(canvasIDs)
 function KoreCrashGame(canvasIDs)
 {
 	initPenultEngine(canvasIDs);
-	
 	// TESTING	
+	PenultSound.load("main", bgm["main"]);
+	PenultSound.play("main", true);
 	
 	KoreCrashGame.ayumu = new PenultActor('fg',0,0,80,80);
 	KoreCrashGame.ayumu.setImageSource(SPRITE_SOURCES['Ayumu_Spinning']);

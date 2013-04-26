@@ -15,7 +15,8 @@ function initPenultEngine(canvasIDs)
 	// Load Sprite Renderer
 	
 	// Load Sound Engine
-	
+	PenultSound.init();
+
 	// Load Physics Engine
 	
 	// Initialize game code
