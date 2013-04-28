@@ -8,8 +8,8 @@ function initPenultEngine(canvasIDs)
 	{
 		modifiedID = canvasIDs[id].split('_')[0];
 		
-		PENULT_GAME_ENGINE.canvases[modifiedID] = document.getElementById(canvasIDs[id]);		
-		PENULT_GAME_ENGINE.drawingContexts[modifiedID]  = PENULT_GAME_ENGINE.canvases[modifiedID].getContext("2d");
+		PENULT_GAME_ENGINE.layers[modifiedID] = new PenultLayer(document.getElementById(canvasIDs[id]));		
+		//PENULT_GAME_ENGINE.drawingContexts[modifiedID]  = PENULT_GAME_ENGINE.canvases[modifiedID].getContext("2d");
 	}
 	
 	// Load Sprite Renderer
@@ -27,8 +27,9 @@ function initPenultEngine(canvasIDs)
 
 function PenultEngine(){}
 
-PenultEngine.prototype.canvases=[];
-PenultEngine.prototype.drawingContexts=[];
+PenultEngine.prototype.layers=[];
+//PenultEngine.prototype.canvases=[];
+//PenultEngine.prototype.drawingContexts=[];
 PenultEngine.prototype.renderingEngine=null;
 
 

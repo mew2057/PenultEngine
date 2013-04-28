@@ -1,4 +1,3 @@
-
 function PenultPhysics()
 {
 
@@ -28,4 +27,10 @@ PenultPhysics.convertToVectorComponents = function(angleRadians, magnitude)
 	// This may need to be rounded in the future...
 	return [Math.cos(angleRadians) * magnitude,Math.sin(angleRadians) * magnitude];
 	//return [((Math.cos(angleRadians) * magnitude) + 0.5) | 0, ((Math.sin(angleRadians) * magnitude)+ 0.5) | 0];
+}
+
+PenultPhysics.applyGravity = function(velocityVector, gravityDirection, gravity)
+{
+	velocityVector[gravityDirection] -= gravity;
+	return 	velocityVector;
 }

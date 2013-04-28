@@ -18,6 +18,8 @@ PenultPhysicsActor.prototype.applyKinematics = function(acceleration)
 	this.velocity[0]+=acceleration[0];
 	this.velocity[1]+=acceleration[1];
 	
+	this.velocity = PenultPhysics.applyGravity(this.velocity, 1, .25);
+	
 	this.posVec[0]+=this.velocity[0];
 	this.posVec[1]+=this.velocity[1];
 }
