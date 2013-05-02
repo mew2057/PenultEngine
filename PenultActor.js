@@ -1,5 +1,11 @@
 
-function PenultActor(){};
+function PenultActor(){
+	this.layer={};
+	this.posVec=[];
+	this.dimensions=[];
+	this.anchor=[];
+	this.image={};
+};
 
 PenultActor.prototype.init = function (drawingContext, x, y, height, width)
 {
@@ -13,7 +19,7 @@ PenultActor.prototype.init = function (drawingContext, x, y, height, width)
 	this.dimensions = [width || 0,height || 0];
 	
 	// The anchor of the actor.
-	this.anchor = [(this.dimensions[0] / 2),(this.dimensions[1] / 2)];
+	this.anchor = [0,height];
 	
 	// The "sprite" this is a placeholder at present XXX refine me.
 	this.image=new Image();
@@ -29,7 +35,7 @@ PenultActor.prototype.setImageSource = function(uri)
 PenultActor.prototype.setAnchor = function(anchorX, anchorY)
 {
 	this.anchor[0] = anchorX;
-	this.anchor[1] = anchorY;
+	this.anchor[1] = this.dimensions - anchorY;
 }
 /**
 This code is good but needs a refactor
@@ -55,5 +61,5 @@ PenultActor.prototype.rotate = function(angle, anchorX, anchorY)
 
 PenultActor.prototype.draw = function()
 {
-	this.layer.drawSprite(this.image,this.posVec[0]-this.anchor[0],this.posVec[1]+this.anchor[1],this.dimensions[0], this.dimensions[1]);
+	this.layer.view.drawSprite(this.image,this.posVec[0]-this.anchor[0],this.posVec[1]+this.anchor[1],this.dimensions[0], this.dimensions[1]);
 };

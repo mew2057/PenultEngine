@@ -1,7 +1,9 @@
 PenultPhysicsActor.prototype = new PenultActor();
 PenultPhysicsActor.prototype.constructor = PenultPhysicsActor;
 
-function PenultPhysicsActor(){};
+function PenultPhysicsActor(){
+	this.velocity=[];
+};
 
 PenultPhysicsActor.prototype.init=function(drawingContext, x, y, height, width)
 {
@@ -20,6 +22,6 @@ PenultPhysicsActor.prototype.applyKinematics = function(acceleration)
 	
 	this.velocity = PenultPhysics.applyGravity(this.velocity, 1, .25);
 	
-	this.posVec[0]+=this.velocity[0];
-	this.posVec[1]+=this.velocity[1];
+	this.posVec[0]+=(this.velocity[0] +.5)|0;
+	this.posVec[1]+=(this.velocity[1] +.5)|0;
 }
