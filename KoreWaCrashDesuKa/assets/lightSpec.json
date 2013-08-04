@@ -1,0 +1,84 @@
+{"frames": [
+{
+	"filename": "Step",
+	"frame": {"x":2,"y":2,"w":22,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":0,"w":22,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "Run01",
+	"frame": {"x":26,"y":2,"w":28,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":28,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "Run02",
+	"frame": {"x":56,"y":2,"w":16,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":0,"w":16,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "Run03",
+	"frame": {"x":74,"y":2,"w":28,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":28,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "Jump",
+	"frame": {"x":2,"y":36,"w":24,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":24,"h":36},
+	"sourceSize": {"w":32,"h":36}
+},
+{
+	"filename": "Slide",
+	"frame": {"x":28,"y":36,"w":32,"h":24},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":32,"h":24},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "Stand",
+	"frame": {"x":62,"y":36,"w":22,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":0,"w":22,"h":32},
+	"sourceSize": {"w":32,"h":32}
+}],
+"animations":[
+{
+    "name":"run",
+    "frames": [3,2,1,2]
+},
+{
+    "name":"jump",
+    "frames":[4]
+},
+{
+    "name":"slide",
+    "frames":[5]
+},
+{
+    "name":"stand",
+    "frames":[6]
+}],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "KoreWaCrashDesuKa/assets/light.png",
+	"format": "RGBA4444",
+	"size": {"w":104,"h":74},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:3504aaf31d1dad8b49f5dd30804af4d6$"
+}
+}

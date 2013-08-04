@@ -6,18 +6,19 @@ function initPenultEngine(canvasIDs)
 	// TODO formalize id names for the engine.
 	for(var id in canvasIDs)
 	{
-		modifiedID = canvasIDs[id].split('_')[0];
+		modifiedID = canvasIDs[id].split('_')[1];
 		
-		PENULT_GAME_ENGINE.layers[modifiedID] = new PenultLayer(document.getElementById(canvasIDs[id]));		
-		//PENULT_GAME_ENGINE.drawingContexts[modifiedID]  = PENULT_GAME_ENGINE.canvases[modifiedID].getContext("2d");
+		PENULT_GAME_ENGINE.layers[modifiedID] = document.getElementById(canvasIDs[id]);
 	}
 	
-	// Load Sprite Renderer
+	// Load Sprite Handler
+	PenultSprite.initSpriteSheet();
 	
 	// Load Sound Engine
 	PenultSound.init();
 
 	// Load Physics Engine
+	
 	
 	// Initialize game code
 }
@@ -27,7 +28,7 @@ function initPenultEngine(canvasIDs)
 
 function PenultEngine(){}
 
-PenultEngine.prototype.layers=[];
+PenultEngine.prototype.layers={};
 //PenultEngine.prototype.canvases=[];
 //PenultEngine.prototype.drawingContexts=[];
 PenultEngine.prototype.renderingEngine=null;
@@ -39,6 +40,38 @@ PenultEngine.prototype.renderingEngine=null;
 PenultEngine.degreesToRadians = function(angleInDegrees)
 {
 	return angleInDegrees*0.01745329251;
+}
+
+// Make sure your cell size is larger than your object size!
+function SpatialHash(cellSize)
+{
+	this.cellSize=cellSize || 1;
+	this.map ={};
+}
+
+SpatialHash.prototype.hash = function(point)
+{
+console.log(point[0]/this.cellSize)
+	return [point[0]/this.cellSize , point[1]/this.cellSize];
+}
+
+// anchor assumed at 0,0 (top left)
+SpatialHash.prototype.insert = function(point, dimensions, object)
+{
+	console.log(this.map);
+
+this.checkAndAdd(this.hash(point))
+	console.log(object, object===object);
+	
+}
+
+SpatialHash.prototype.checkAndAdd = function(hash, object)
+{
+	if(!this.map[hash[0]] || !this.map[hash[0]][hash[1]])
+	{
+	/*console.log({ hash[1] : [object]});
+		this.map[hash[0]] = { hash[1] : [object]};*/
+	}
 }
 
 window.requestAnimFrame = (function(){

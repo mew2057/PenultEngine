@@ -3,6 +3,8 @@ function initKoreWaCrashGame(canvasIDs)
 	KORE_WA_GAME = new KoreCrashGame(canvasIDs);
 };
 
+KoreCrashGame.scene = {};
+
 function KoreCrashGame(canvasIDs)
 {
 
@@ -10,14 +12,39 @@ function KoreCrashGame(canvasIDs)
 	// TESTING	
 	PenultSound.load("main", bgm["main"]);
 	//PenultSound.play("main", true);
+	
+	KoreCrashGame.scene = new PenultScene();
+	
+	KoreCrashGame.scene.load(
+		[['KoreWaCrashDesuKa/assets/lightSpec.json', 'light'],
+		 ['KoreWaCrashDesuKa/assets/ground.json', 'ground']],
+		 'KoreWaCrashDesuKa/assets/level0.json');
+	
 
+	//KoreCrashGame.scene.loadTMX('KoreWaCrashDesuKa/assets/level0.json');
+	for (var id in PENULT_GAME_ENGINE.layers)
+	{
+		KoreCrashGame.scene.createLayer(id, PENULT_GAME_ENGINE.layers[id]);
+	}
+	
 	KoreCrashGame.ayumu = new PenultPhysicsActor();
 	KoreCrashGame.test = new PenultActor();
-	KoreCrashGame.ayumu.init('fg',0,0,80,80);
-	KoreCrashGame.test.init('fg',400,50,160,160);
+	KoreCrashGame.ayumu.init(KoreCrashGame.scene.getLayer('fg'),0,0,80,80);
+	KoreCrashGame.test.init(KoreCrashGame.scene.getLayer('fg'),400,50,160,160);
+	
+	
+	
+	/*PenultSprite.importSpriteSheet('KoreWaCrashDesuKa/assets/lightSpec.json', 'light');
+	PenultSprite.importSpriteSheet('KoreWaCrashDesuKa/assets/ground.json', 'ground');*/
+	//PenultSprite.appendToSpriteSheet(SPRITE_SOURCES['Ayumu_Spinning'],'Ayumu_Spinning');
+	
 
-	KoreCrashGame.ayumu.setImageSource(SPRITE_SOURCES['Ayumu_Spinning']);
-		KoreCrashGame.test.setImageSource(SPRITE_SOURCES['Ayumu_Spinning']);
+//PenultSprite.preRenderSheet();
+
+//return;
+
+	KoreCrashGame.ayumu.setImageSource(SPRITE_SOURCES['Ayumu_Spinning'].src);
+		KoreCrashGame.test.setImageSource(SPRITE_SOURCES['Ayumu_Spinning'].src);
 
 	KoreCrashGame.ayumu.applyKinematics(PenultPhysics.convertToVectorComponents(Math.atan(500/1024),15));
 	
@@ -31,7 +58,8 @@ function KoreCrashGame(canvasIDs)
 var angle=0;
 KoreCrashGame.koreWaLoop = function()
 {
-    PENULT_GAME_ENGINE.layers['fg'].view.clear();
+
+    KoreCrashGame.scene.getLayer('fg').clear();
 
 	//
 	KoreCrashGame.ayumu.applyKinematics(PenultPhysics.pointVector);

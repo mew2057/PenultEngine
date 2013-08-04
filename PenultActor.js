@@ -5,37 +5,48 @@ function PenultActor(){
 	this.dimensions=[];
 	this.anchor=[];
 	this.image={};
+	
+	// TODO link animations and sprites.
+	this.sprites = {};
+	this.animations ={};
 };
 
-PenultActor.prototype.init = function (drawingContext, x, y, height, width)
-{
-	// This holds a reference to a context!
-	this.layer = PENULT_GAME_ENGINE.layers[drawingContext];
+PenultActor.prototype = {
 
-	// These are the global coordinates for the map.
-	this.posVec = [x || 0, y || 0];
+	init:function (layer, x, y, height, width)
+	{
+		this.layer = layer;
+
+		// These are the global coordinates for the map.
+		this.posVec = [x || 0, y || 0];
+			
+		// [width, height]
+		this.dimensions = [width || 0,height || 0];
 		
-	// [width, height]
-	this.dimensions = [width || 0,height || 0];
-	
-	// The anchor of the actor.
-	this.anchor = [0,height];
-	
-	// The "sprite" this is a placeholder at present XXX refine me.
-	this.image=new Image();
-}
+		// The anchor of the actor.
+		this.anchor = [0,height];
+		
+		// The "sprite" this is a placeholder at present XXX refine me.
+		this.image=new Image();
+	},
 
-// XXX This is not robust enough to handle animations.
-PenultActor.prototype.setImageSource = function(uri)
-{
-// TODO load callback.
-	this.image.src = uri;
-};
+	// XXX This is not robust enough to handle animations.
+	setImageSource:function(uri)
+	{
+	// TODO load callback.
+		this.image.src = uri;
+	},
 
-PenultActor.prototype.setAnchor = function(anchorX, anchorY)
-{
-	this.anchor[0] = anchorX;
-	this.anchor[1] = this.dimensions - anchorY;
+	setAnchor:function(anchorX, anchorY)
+	{
+		this.anchor[0] = anchorX;
+		this.anchor[1] = this.dimensions - anchorY;
+	},
+	
+	draw:function()
+	{
+		this.layer.drawSprite(this.image,this.posVec[0]-this.anchor[0],this.posVec[1]+this.anchor[1],this.dimensions[0], this.dimensions[1]);
+	}
 }
 /**
 This code is good but needs a refactor
@@ -59,7 +70,4 @@ PenultActor.prototype.rotate = function(angle, anchorX, anchorY)
 	this.layer.restore();
 };*/
 
-PenultActor.prototype.draw = function()
-{
-	this.layer.view.drawSprite(this.image,this.posVec[0]-this.anchor[0],this.posVec[1]+this.anchor[1],this.dimensions[0], this.dimensions[1]);
-};
+

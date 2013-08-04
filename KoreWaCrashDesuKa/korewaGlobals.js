@@ -2,7 +2,13 @@
 
 	// assets
 	var SPRITE_SOURCES = {
-		Ayumu_Spinning:"KoreWaCrashDesuKa/assets/mc.png"
+		Ayumu_Spinning:{
+			src:"KoreWaCrashDesuKa/assets/mc.png"
+			
+		},
+		Ground_Tex:{
+			src:"KoreWaCrashDesuKa/assets/ground.png"
+		},
 	};
 
 	var bgm = {

@@ -11,7 +11,6 @@ PenultPhysics.updatePhysicsActor = function(physicsActor)
 	
 }
 
-
 PenultPhysics.convertToVectorComponentsDegree = function(angleDegrees, magnitude)
 {
 	return PenultPhysics.convertToVectorComponents(PenultEngine.degreesToRadians(angleDegrees), magnitude);
